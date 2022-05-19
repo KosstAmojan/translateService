@@ -3,15 +3,20 @@ from googletrans import Translator
 
 app = Flask(__name__)
 
+@app.after_request
+def after(response):
+    # todo with response
+    return response
 
 @app.route('/translate', methods=['POST'])
 def translate():
     """
     Receives the translation request via POST.
     """
+    print(request.form)
 
     # Convert received JSON to dictionary and parse.
-    translate_request = request.get_json()
+    translate_request = request.get_json(force=True)
     target = translate_request.get('trgt')
     text = translate_request.get('text')
 

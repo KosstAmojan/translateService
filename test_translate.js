@@ -1,11 +1,11 @@
 import fetch from "node-fetch";
 
 const text = 'hello'
-const URL = 'http://localhost:5000/translate'
+const URL = 'http://localhost:8080/translate'
 const data = {'trgt': 'es','text':text}
 const params = {
     headers:{
-        "content-type":"application/json charset=UTF-8"
+        "Content-Type":"application/json charset=UTF-8"
     },
     body: JSON.stringify(data),
     method:"POST",
